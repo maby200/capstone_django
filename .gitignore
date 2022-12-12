@@ -172,5 +172,9 @@ cython_debug/
 #.idea/
 
 
-LEER_antes_de_runserver.txt
+*.txt
+
+project/
+
 # End of https://www.toptal.com/developers/gitignore/api/django
+

@@ -1,21 +1,20 @@
 from django import forms
-
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Portfolio
 
 
+#ModelForm sirve para no estar creando nuevamente
+# los campos donde se ingresarán
+# los datos a la base de datos
 
-class NewUserForm(UserCreationForm):
-    email = forms.EmailField
-
-    class Meta:
-        model = User
-        fields = ["username","first_name", "last_name", "email", "password1", "password2"]
-
-
-
-class ProjectForm(forms.Form):
+class ProjectForm(forms.ModelForm):
     class Meta:
         model = Portfolio
-        fields=['photo','project_title','project_description', 'tags', 'github_project', 'ip_address']
+        fields= [
+            'photo',
+            'project_title',
+            'project_description',
+            'tags',
+            'github_project',
+            ]

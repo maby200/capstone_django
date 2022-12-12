@@ -1,9 +1,9 @@
-from django.contrib import admin
 from django.urls import path
-from .views import register, upload_data
-
+from django.views.decorators.cache import cache_page
+from . import views
 
 urlpatterns = [
-    path('', register, name='register' ),
-    path('upload-project/', upload_data, name='upload-data' ),
+    path('', views.ProjectView.as_view(), name='index'),
+    path('upload-project/', views.UploadData.as_view(), name='upload-data'),
+    path('delete/<int:id>', views.deleteProject, name='delete'),
 ]
